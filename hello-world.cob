@@ -11,6 +11,10 @@
        0000-MAIN.
            DISPLAY "WHAT'S YOUR NAME : " WITH NO ADVANCING.
            ACCEPT WS-NAME.
+           IF WS-NAME = SPACES THEN
+               GO TO 9999-ABNORMAL-END.
            DISPLAY "HELLO " TRIM(WS-NAME) "!".
        9999-EXIT.
-           STOP RUN.
+           STOP RUN WITH ERROR STATUS 0.
+       9999-ABNORMAL-END.
+           STOP RUN WITH ERROR STATUS 255.
