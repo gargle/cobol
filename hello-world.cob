@@ -1,6 +1,9 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. HELLO_WORLD.
+       PROGRAM-ID. HELLO-WORLD.
        ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       REPOSITORY.
+           FUNCTION ALL INTRINSIC.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        77  WS-NAME                                PIC X(64).
@@ -8,6 +11,6 @@
        0000-MAIN.
            DISPLAY "WHAT'S YOUR NAME : " WITH NO ADVANCING.
            ACCEPT WS-NAME.
-           DISPLAY "HELLO " WS-NAME "!".
+           DISPLAY "HELLO " TRIM(WS-NAME) "!".
        9999-EXIT.
            STOP RUN.
