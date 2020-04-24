@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO_WORLD.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77  WS-NAME                                PIC X(64).
+       PROCEDURE DIVISION.
+       0000-MAIN.
+           DISPLAY "WHAT'S YOUR NAME : " WITH NO ADVANCING.
+           ACCEPT WS-NAME.
+           DISPLAY "HELLO " WS-NAME "!".
+       9999-EXIT.
+           STOP RUN.
