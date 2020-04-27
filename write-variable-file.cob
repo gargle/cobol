@@ -23,6 +23,7 @@
        0000-MAIN.
            OPEN OUTPUT OUTFILE.
 
+      * it is important to set the length first, and then fill in the record
            MOVE 10 TO OUTFILE-SIZE.
            MOVE "12345678901234" TO OUTFILE-RECORD.
            WRITE OUTFILE-RECORD.
