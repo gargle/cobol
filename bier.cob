@@ -49,6 +49,7 @@
        PROCEDURE DIVISION.
        0000-MAIN.
            MOVE CURRENT-DATE TO WS-CURRENT-DATE-DATA.
+           MOVE ALL '9' TO WS-CURRENT-TIMESTAMP-DIFF.
        0010-OPEN-FILE.
            OPEN INPUT BIER.
        0010-CHECK-FILE.
@@ -66,6 +67,8 @@
        0090-CLOSE-FILE.
            CLOSE BIER.
        0100-PROCESS-DIFFERENCE.
+      *    if "BIER.FILE" has a malformed record then the timestamp
+      *    difference will be large enough to trigger a new file
            IF WS-CURRENT-TIMESTAMP-DIFF >= 40000
                GO TO 0200-NEW-FILE.
        0200-OLD-FILE.
@@ -73,6 +76,7 @@
            GO TO 0200-PROCESS-ONE-BIER.
        0200-NEW-FILE.
            OPEN OUTPUT BIER.
+           MOVE 0 TO WS-BIER-COUNTER.
        0200-PROCESS-ONE-BIER.
            ADD 1 TO WS-BIER-COUNTER.
            MOVE WS-CURRENT-TIMESTAMP-NUMERIC TO BIER-TIMESTAMP-NUMERIC.
