@@ -71,7 +71,7 @@
 (defcustom cobol-tab-always-indent t
   "*Non-nil means TAB in COBOL mode should always reindent the current line,
 regardless of where in the line point is when the TAB command is used."
-  :type 'boolean
+  :type 'booleanaev
   :group 'old-cobol)
 
 (defvar cobol-do-indent 4
@@ -278,7 +278,7 @@ to begin a continuation line.  Normally ?-")
    "BY\\|"
    "C\\(A\\(LL\\(-CONVENTION\\)?\\|NCEL\\)\\|LOSE\\|O\\(MPUTE\\|NTAINS\\|NTINUE\\|PY\\)\\)\\|"
    "D\\(E\\(CLARE\\|ETE\\|PENDING[ \t]+ON\\|LIMITED[ \t]+BY\\)\\|I\\(SPLAY\\|VIDE\\)\\)\\|"
-   "E\\(LSE\\|NTRY\\|VALUATE\\|X\\(IT\\|EC[ \t]+SQL\\)\\)\\|F\\(OR\\|ROM\\)\\|"
+   "E\\(LIF\\|LSE\\|NTRY\\|VALUATE\\|X\\(IT\\|EC[ \t]+SQL\\)\\)\\|F\\(OR\\|ROM\\)\\|"
    "G\\(IVING\\|O\\(BACK\\)?\\)\\|"
    "I\\(F\\|N\\(ITIALIZE\\|TO\\|SPECT\\|DEX\\(ED[ \t]+BY\\)?\\)\\|S\\)\\|LESS\\|"
    "M\\(ERGE\\|OVE\\|ULTIPLY\\)\\|NEXT[ \t]SENTENCE\\|O\\(CCURS\\|PEN\\|R\\)\\|"
