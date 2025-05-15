@@ -7,7 +7,7 @@
            FUNCTION ALL INTRINSIC.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       77  WS-NAME                                PIC X(64).
+       77  WS-NAME                                PIC X(64).            here we store our name
        PROCEDURE DIVISION.
        0000-MAIN.
            DISPLAY "WHAT'S YOUR NAME : " WITH NO ADVANCING.
