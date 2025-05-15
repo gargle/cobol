@@ -1,5 +1,6 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. BIER.
+      * cobc -x -Wall bier.cob -T bier.lst -Xref
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
        SPECIAL-NAMES.
@@ -15,35 +16,35 @@
        FILE SECTION.
        FD  BIER.
        01  BIER-RECORD.
-           03  BIER-TIMESTAMP-NUMERIC             PIC 9(14).
-           03  FILLER REDEFINES BIER-TIMESTAMP-NUMERIC.
-               05  BIER-DATE-NUMERIC              PIC 9(08).
-               05  BIER-DATE REDEFINES BIER-DATE-NUMERIC.
+           03  BIER-TIMESTAMP-NUMERIC             PIC 9(14).            is a date in 8 positions and a
+           03  FILLER REDEFINES BIER-TIMESTAMP-NUMERIC.                 time in 6 positions
+               05  BIER-DATE-NUMERIC              PIC 9(08).            the date is in the YYYYMMDD
+               05  BIER-DATE REDEFINES BIER-DATE-NUMERIC.               format
                    07  BIER-DATE-YEAR             PIC 9(04).
                    07  BIER-DATE-MONTH            PIC 9(02).
                    07  BIER-DATE-DAY              PIC 9(02).
-               05  BIER-TIME-NUMERIC              PIC 9(06).
-               05  BIER-TIME REDEFINES BIER-TIME-NUMERIC.
+               05  BIER-TIME-NUMERIC              PIC 9(06).            while the time is in the HHMMSS
+               05  BIER-TIME REDEFINES BIER-TIME-NUMERIC.               format
                    07  BIER-TIME-HOURS            PIC 9(02).
                    07  BIER-TIME-MINUTES          PIC 9(02).
                    07  BIER-TIME-SECONDS          PIC 9(02).
        WORKING-STORAGE SECTION.
-       01  WS-CURRENT-DATE-DATA.
-           03  WS-CURRENT-DATE                    PIC 9(08).
-           03  FILLER REDEFINES WS-CURRENT-DATE.
-               05  WS-CURRENT-YEAR                PIC 9(04).
+       01  WS-CURRENT-DATE-DATA.                                        is a date in 8 positions and a
+           03  WS-CURRENT-DATE                    PIC 9(08).            time in 8 positions
+           03  FILLER REDEFINES WS-CURRENT-DATE.                        the date is in the YYMMDD
+               05  WS-CURRENT-YEAR                PIC 9(04).            format
                05  WS-CURRENT-MONTH               PIC 9(02).
                05  WS-CURRENT-DAY                 PIC 9(02).
            03  WS-CURRENT-TIME                    PIC 9(08).
-           03  FILLER REDEFINES WS-CURRENT-TIME.
-               05  WS-CURRENT-HOURS               PIC 9(02).
+           03  FILLER REDEFINES WS-CURRENT-TIME.                        while the time is in the
+               05  WS-CURRENT-HOURS               PIC 9(02).            HHMMSSmm format
                05  WS-CURRENT-MINUTES             PIC 9(02).
                05  WS-CURRENT-SECONDS             PIC 9(02).
                05  WS-CURRENT-MILLISECONDS        PIC 9(02).
-       01  FILLER REDEFINES WS-CURRENT-DATE-DATA.
-           03  WS-CURRENT-TIMESTAMP-NUMERIC       PIC 9(14).
+       01  FILLER REDEFINES WS-CURRENT-DATE-DATA.                       we won't bother with the
+           03  WS-CURRENT-TIMESTAMP-NUMERIC       PIC 9(14).            milliseconds
            03  FILLER                             PIC 9(02).
-       77  WS-CURRENT-TIMESTAMP-DIFF              PIC 9(14).
+       77  WS-CURRENT-TIMESTAMP-DIFF              PIC 9(14).            no milliseconds when we compare
        77  WS-BIER-COUNTER                        PIC 9(02).
        77  FILE-STAT                              PIC X(02).
        PROCEDURE DIVISION.
