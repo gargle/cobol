@@ -1,5 +1,6 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. HELLO-WORLD.
+      * cobc -x -Wall hello-world.cob -T hello-world.lst -Xref
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
        REPOSITORY.
