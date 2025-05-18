@@ -31,7 +31,7 @@
        WORKING-STORAGE SECTION.
        01  WS-CURRENT-DATE-DATA.                                        is a date in 8 positions and a
            03  WS-CURRENT-DATE                    PIC 9(08).            time in 8 positions
-           03  FILLER REDEFINES WS-CURRENT-DATE.                        the date is in the YYMMDD
+           03  FILLER REDEFINES WS-CURRENT-DATE.                        the date is in the YYYYMMDD
                05  WS-CURRENT-YEAR                PIC 9(04).            format
                05  WS-CURRENT-MONTH               PIC 9(02).
                05  WS-CURRENT-DAY                 PIC 9(02).
