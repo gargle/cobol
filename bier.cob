@@ -23,7 +23,7 @@
                    07  BIER-DATE-YEAR             PIC 9(04).
                    07  BIER-DATE-MONTH            PIC 9(02).
                    07  BIER-DATE-DAY              PIC 9(02).
-               05  BIER-TIME-NUMERIC              PIC 9(06).            while the time is in the HHMMSS
+               05  BIER-TIME-NUMERIC              PIC 9(06).            while the time is HHMMSS
                05  BIER-TIME REDEFINES BIER-TIME-NUMERIC.               format
                    07  BIER-TIME-HOURS            PIC 9(02).
                    07  BIER-TIME-MINUTES          PIC 9(02).
@@ -44,7 +44,7 @@
        01  FILLER REDEFINES WS-CURRENT-DATE-DATA.                       we won't bother with the
            03  WS-CURRENT-TIMESTAMP-NUMERIC       PIC 9(14).            milliseconds
            03  FILLER                             PIC 9(02).
-       77  WS-CURRENT-TIMESTAMP-DIFF              PIC 9(14).            no milliseconds when we compare
+       77  WS-CURRENT-TIMESTAMP-DIFF              PIC 9(14).            no milliseconds when compared
        77  WS-BIER-COUNTER                        PIC 9(02).
        77  FILE-STAT                              PIC X(02).
        PROCEDURE DIVISION.
@@ -63,6 +63,11 @@
            SUBTRACT BIER-TIMESTAMP-NUMERIC
                FROM WS-CURRENT-TIMESTAMP-NUMERIC
                GIVING WS-CURRENT-TIMESTAMP-DIFF.
+           IF WS-CURRENT-TIMESTAMP-DIFF < 40000
+               DISPLAY "YOU HAD A BEER TODAY AT "
+                       BIER-TIME-HOURS ":"
+                       BIER-TIME-MINUTES ":"
+                       BIER-TIME-SECONDS UPON TERM.
            ADD 1 TO WS-BIER-COUNTER.
            GO TO 0020-READ-FILE.
        0090-CLOSE-FILE.
