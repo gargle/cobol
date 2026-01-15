@@ -90,7 +90,7 @@
        0200-CLOSE-FILE.
            CLOSE BIER.
        0300-DISPLAY-STATISTICS.
-           DISPLAY "YOU HAD " WS-BIER-COUNTER " BEERS.  "
+           DISPLAY "YOU DRANK " WS-BIER-COUNTER " BEERS.  "
                    "YOUR LAST ONE WAS AT " WS-CURRENT-HOURS ":"
                                            WS-CURRENT-MINUTES ":"
                                            WS-CURRENT-SECONDS "."
