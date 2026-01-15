@@ -46,6 +46,7 @@
            03  FILLER                             PIC 9(02).
        77  WS-CURRENT-TIMESTAMP-DIFF              PIC 9(14).            no milliseconds when compared
        77  WS-BIER-COUNTER                        PIC 9(02).
+       77  WS-BIER-COUNTER-OUT                    PIC Z9.
        77  FILE-STAT                              PIC X(02).
        PROCEDURE DIVISION.
        0000-MAIN.
@@ -90,10 +91,14 @@
        0200-CLOSE-FILE.
            CLOSE BIER.
        0300-DISPLAY-STATISTICS.
-           DISPLAY "YOU DRANK " WS-BIER-COUNTER " BEERS.  "
-                   "YOUR LAST ONE WAS AT " WS-CURRENT-HOURS ":"
-                                           WS-CURRENT-MINUTES ":"
-                                           WS-CURRENT-SECONDS "."
+           MOVE WS-BIER-COUNTER TO WS-BIER-COUNTER-OUT.
+           DISPLAY "YOU DRANK " TRIM(WS-BIER-COUNTER-OUT)
+                   " BEER" WITH NO ADVANCING.
+           IF WS-BIER-COUNTER > 1
+               DISPLAY "S" WITH NO ADVANCING.
+           DISPLAY ".  YOUR LAST ONE WAS AT " WS-CURRENT-HOURS ":"
+                                              WS-CURRENT-MINUTES ":"
+                                              WS-CURRENT-SECONDS "."
                    UPON TERM.
        9999-EXIT.
            STOP-RUN.
