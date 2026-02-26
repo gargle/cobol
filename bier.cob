@@ -93,9 +93,9 @@
        0300-DISPLAY-STATISTICS.
            MOVE WS-BIER-COUNTER TO WS-BIER-COUNTER-OUT.
            DISPLAY "YOU ARE HAVING " TRIM(WS-BIER-COUNTER-OUT)
-                   " BEER" WITH NO ADVANCING.
+                   " BEER" WITH NO ADVANCING UPON TERM.
            IF WS-BIER-COUNTER > 1
-               DISPLAY "S" WITH NO ADVANCING.
+               DISPLAY "S" WITH NO ADVANCING UPON TERM.
            DISPLAY ".  YOUR LAST ONE WAS AT " WS-CURRENT-HOURS ":"
                                               WS-CURRENT-MINUTES ":"
                                               WS-CURRENT-SECONDS "."
